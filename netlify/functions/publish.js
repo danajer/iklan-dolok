@@ -4,12 +4,11 @@ exports.handler = async (event) => {
   const judul = encodeURIComponent(data.judul);
   const tentang = encodeURIComponent(data.tentang);
 
-  const url = `https://iklan-dolok.netlify.app/view.html?judul=${judul}&tentang=${tentang}`;
+  const url = `https://berbaikan-bank-btn.netlify.app/view.html?judul=${judul}&tentang=${tentang}`;
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: "Berhasil",
       link: url
     })
   };
