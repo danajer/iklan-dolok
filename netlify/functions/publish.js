@@ -1,26 +1,16 @@
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
 
-  const slug = data.judul
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-");
+  const judul = encodeURIComponent(data.judul);
+  const tentang = encodeURIComponent(data.tentang);
 
-  const html = `
-  <html>
-    <head>
-      <title>${data.judul}</title>
-      <meta name="description" content="${data.tentang}">
-    </head>
-    <body>
-      <h1>${data.judul}</h1>
-      <p>${data.tentang}</p>
-    </body>
-  </html>
-  `;
+  const url = `https://iklan-dolok.netlify.app/view.html?judul=${judul}&tentang=${tentang}`;
 
-  // Simpan ke repo via GitHub API (langkah 3)
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "ok", slug })
+    body: JSON.stringify({
+      message: "Berhasil",
+      link: url
+    })
   };
 };
