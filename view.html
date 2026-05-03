@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artikel</title>
+</head>
+<body>
+
+<h1 id="judul"></h1>
+<p id="tentang"></p>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("judul").innerText = params.get("judul");
+  document.getElementById("tentang").innerText = params.get("tentang");
+</script>
+
+</body>
+</html>
